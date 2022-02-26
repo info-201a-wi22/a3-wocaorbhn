@@ -1,0 +1,28 @@
+# ***Incarceration Report***
+In my report, I am going to do an analysis regarding incarceration. I would explore into the information regarding the jailed population in Del Norte County. I would analyze the year in which the jailed population is the greatest, the average of jailed population in that year, and the proportion of different races in total jailed population.
+```{r}
+source("../source/analysis.R")
+trends_over_time_chart
+```
+
+
+
+## *Chart 1 Summary:*
+I included this chart because I believe the trends could show important information of how the population of jailed person has increased or decreased throughout the years. There are three variables: black jailed person, white jailed person and total jailed person. The horizontal axis is the years, ranging from 2000 to 2010. The vertical axis is the population of jailed person. With the years displayed, we could easily view the trend of the population of jailed person each year.I discovered from the graph that in this Del Norte County, White jailed people is occupying a large portion of the total jailed people. Black jailed people are only a small portion. 
+```{r}
+two_variable_chart
+```
+
+
+
+## *Chart 2 Summary:*
+The second chart I created could show the comparison between the total population and the total jailed population. The reason why I included it is due to the reason that I assumed a positive correlation between the total population of a county and the total jailed population in a county. I would like to check whether my hypothesis is correct. In this chart, I could definitely see that as the total population grows, the total jailed population grows as well. So there's a positive correlation between those two variables.
+
+```{r}
+Map
+```
+
+
+
+## *Map Summary:*
+I included this graph because this map could clearly show the different jailed populations in each county. The darker the color the less jailed population there is. The greyish color means that there's no data corresponding with the county. We could see that most counties are dark blue, meaning that they have ery little jailed population within.
