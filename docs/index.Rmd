@@ -1,3 +1,50 @@
+#Which year has the most jailed person in Del Norte County in CA
+
+most_jailed_year <- incarceration_data %>%
+  filter(county_name == "Del Norte County", state == "CA") %>%
+  filter(total_jail_pop == max(total_jail_pop))
+
+#what is the average jailed populations in 2005?
+
+ave_jailed_2005 <- incarceration_data %>%
+  filter(year == 2005) %>%
+  summarize(mean(total_jail_pop, na.rm = TRUE))
+
+#What is the total jailed populations in 2005 in Del Norte County in CA
+
+total_jailed_Del <- most_jailed_year$total_jail_pop
+
+#What is the proportion of black people jailed in 2005 in Del Norte County in CA
+
+prop_black_person <- most_jailed_year$black_jail_pop/total_jailed_Del
+
+#What is the proportion of white people jailed in 2005 in Del Norte County in CA
+
+prop_white_person <- most_jailed_year$white_jail_pop/total_jailed_Del
+
+#What is the rate of change in black people during 2000 to 2010 in Del Norte
+#County in CA
+
+black_2000 <- incarceration_data %>%
+  filter(year == 2000, county_name == "Del Norte County", state == "CA") %>%
+  pull(black_jail_pop)
+black_2010 <- incarceration_data %>%
+  filter(year ==2010, county_name == "Del Norte County", state == "CA") %>%
+  pull(black_jail_pop)
+roc_black_Del <- (black_2010-black_2000)/black_2000
+
+#What is the rate of change in white people during 2000 to 2010 in Del Norte
+#County in CA
+
+white_2000 <- incarceration_data %>%
+  filter(year == 2000, county_name == "Del Norte County", state == "CA") %>%
+  pull(white_jail_pop)
+white_2010 <- incarceration_data %>%
+  filter(year ==2010, county_name == "Del Norte County", state == "CA") %>%
+  pull(white_jail_pop)
+roc_white_Del <- (white_2010-white_2000)/white_2000
+
+
 # ***Incarceration Report***
 In my report, I am going to do an analysis regarding incarceration. I would explore into the information regarding the jailed population in Del Norte County. I would analyze the year in which the jailed population is the greatest, the average of jailed population in that year, and the proportion of different races in total jailed population.
 ```{r}

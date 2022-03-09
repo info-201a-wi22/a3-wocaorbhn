@@ -167,6 +167,20 @@ pre code {
 </div>
 
 
+<p>#Which year has the most jailed person in Del Norte County in CA</p>
+<p>most_jailed_year &lt;- incarceration_data %&gt;% filter(county_name == “Del Norte County”, state == “CA”) %&gt;% filter(total_jail_pop == max(total_jail_pop))</p>
+<p>#what is the average jailed populations in 2005?</p>
+<p>ave_jailed_2005 &lt;- incarceration_data %&gt;% filter(year == 2005) %&gt;% summarize(mean(total_jail_pop, na.rm = TRUE))</p>
+<p>#What is the total jailed populations in 2005 in Del Norte County in CA</p>
+<p>total_jailed_Del &lt;- most_jailed_year$total_jail_pop</p>
+<p>#What is the proportion of black people jailed in 2005 in Del Norte County in CA</p>
+<p>prop_black_person &lt;- most_jailed_year$black_jail_pop/total_jailed_Del</p>
+<p>#What is the proportion of white people jailed in 2005 in Del Norte County in CA</p>
+<p>prop_white_person &lt;- most_jailed_year$white_jail_pop/total_jailed_Del</p>
+<p>#What is the rate of change in black people during 2000 to 2010 in Del Norte #County in CA</p>
+<p>black_2000 &lt;- incarceration_data %&gt;% filter(year == 2000, county_name == “Del Norte County”, state == “CA”) %&gt;% pull(black_jail_pop) black_2010 &lt;- incarceration_data %&gt;% filter(year ==2010, county_name == “Del Norte County”, state == “CA”) %&gt;% pull(black_jail_pop) roc_black_Del &lt;- (black_2010-black_2000)/black_2000</p>
+<p>#What is the rate of change in white people during 2000 to 2010 in Del Norte #County in CA</p>
+<p>white_2000 &lt;- incarceration_data %&gt;% filter(year == 2000, county_name == “Del Norte County”, state == “CA”) %&gt;% pull(white_jail_pop) white_2010 &lt;- incarceration_data %&gt;% filter(year ==2010, county_name == “Del Norte County”, state == “CA”) %&gt;% pull(white_jail_pop) roc_white_Del &lt;- (white_2010-white_2000)/white_2000</p>
 <div id="incarceration-report" class="section level1">
 <h1><strong><em>Incarceration Report</em></strong></h1>
 <p>In my report, I am going to do an analysis regarding incarceration. I would explore into the information regarding the jailed population in Del Norte County. I would analyze the year in which the jailed population is the greatest, the average of jailed population in that year, and the proportion of different races in total jailed population.</p>
